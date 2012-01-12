@@ -27,21 +27,6 @@ module CalendarDateSelect
       end
     end
 
-    rake_tasks do
-      namespace :calendar do
-        desc "Install assets required by calendar_date_select gem"
-        task :install do
-
-          Files.each do |f|
-            source = File.join(File.dirname(__FILE__), "..", f)
-            dest = File.join(Rails.root, f)
-            FileUtils.mkdir_p(dest, :verbose => true)
-            FileUtils.cp(Dir.glob(source+'/*.*'), dest, :verbose => true)
-          end
-
-        end # task
-      end #namespace
-    end # rake_tasks
   end # Railtie
 end # module
 
